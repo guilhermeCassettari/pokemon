@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ApolloProvider } from '@apollo/client';
+import React from 'react'
+import { Text } from 'react-native';
+import { PokemonProvider } from './src/context/PokemonContext/PokemonContext';
+import apolloClient from './apolloClient'
+import Home from './src/pages/Home'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ApolloProvider client={apolloClient}>
+      <PokemonProvider>
+        <Home/>
+      </PokemonProvider>
+    </ApolloProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
