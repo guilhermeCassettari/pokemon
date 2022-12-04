@@ -1,7 +1,7 @@
-import React, { createContext, useState, PropsWithChildren, useEffect, ReactNode } from "react";
+import React, { createContext, ReactNode } from "react";
 import { useGetCard } from "../../hooks/useGetCard";
 
-import { PokeCard, PokeQueryCard, PokeAtackType } from '../../types/PokeCard'
+import { PokeCard} from '../../types/PokeCardType'
 
 interface ContextProps {
     pokeData: PokeCard[] | [],
@@ -18,28 +18,8 @@ const defaultState: ContextProps = {
 }
 export const PokemonContext= createContext(defaultState)
 
-export const PokemonProvider: React.FC<Props> = ({ children }) => {
-    const [pokeData, setPokeData] = useState<PokeCard[]>([])
-
-    const { data, loading } = useGetCard()
-    
-
-    useEffect(() => {
-        if (data) {
-            const pokeList = data.pokemon_v2_pokemon.map((pokemon: PokeQueryCard) => {
-                const type = pokemon.pokemon_v2_pokemontypes.map(( type: PokeAtackType ) => {
-                    return type.pokemon_v2_type.name
-                })
-                return {
-                    name: pokemon.name,
-                    id: pokemon.id,
-                    color: pokemon.pokemon_v2_pokemonspecy.pokemon_v2_pokemoncolor.name,
-                    type
-                }
-            })
-            setPokeData(pokeList)
-        }
-    }, [data, loading])
+export const PokemonProvider: React.FC<Props> = ({ children }) => {   
+    const { pokeData, loading } = useGetCard()  
 
     return (
         <PokemonContext.Provider value={{ pokeData, loading }}>
