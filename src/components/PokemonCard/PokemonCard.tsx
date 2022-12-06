@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 import { PokeCard } from '../../types/PokeCardType'

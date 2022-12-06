@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { FlatList, Text } from "react-native";
 import { PokemonContext } from "../../context/PokemonContext";
 import PokeCard from '../../components/PokemonCard'
 import SearchBar from "../../components/SearchBar";
 import { Dimensions } from 'react-native';
-import {scale} from 'react-native-size-matters'
 
 import * as S from './styles'
 

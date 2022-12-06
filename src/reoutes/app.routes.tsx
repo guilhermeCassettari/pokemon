@@ -8,7 +8,7 @@ import { PokeCard } from "../types/PokeCardType";
 
 export type RootStackParamList = {
     Home: undefined
-    Pokedetails: { pokemon: PokeCard } | undefined;
+    Pokedetails: { pokemon: PokeCard } 
   };
 
 const Stack = createNativeStackNavigator<RootStackParamList>()

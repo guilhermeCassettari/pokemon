@@ -19,7 +19,6 @@ type RouteParams = {
 const PokeDetails = () => {
     const route = useRoute();
     const { pokemon } = route.params as RouteParams;
-
     const { name, color, id, type: types } = pokemon
 
     const { fetchPokeDetais, pokeDetail, loading } = useGetPokeDetails()
@@ -30,12 +29,8 @@ const PokeDetails = () => {
 
     return (
         <S.Wrapper>
-            <S.HeaderWrapper
-                color={color}
-            >
-                <S.ImageWrapper
-                    color={color}
-                >
+            <S.HeaderWrapper color={color}>
+                <S.ImageWrapper color={color} >
                     <S.Image source={getImgUrl(id)} />
                 </S.ImageWrapper>
                 <S.HeaderInfo>
@@ -104,19 +99,14 @@ const PokeDetails = () => {
                                 <S.TextStatName>Gender</S.TextStatName>
                                 <S.GenderWrapper>
                                     <S.SingleGender>
-                                        <S.GenderIcon
-                                            source={male}
-                                        />
+                                        <S.GenderIcon source={male}/>
                                         <S.TextStatValue>{pokeDetail?.gender.male}%</S.TextStatValue>
                                     </S.SingleGender>
                                     <S.SingleGender>
-                                        <S.GenderIcon
-                                            source={female}
-                                        />
+                                        <S.GenderIcon source={female}/>
                                         <S.TextStatValue>{pokeDetail?.gender.female}%</S.TextStatValue>
                                     </S.SingleGender>
                                 </S.GenderWrapper>
-
                             </S.Line>
                             {pokeDetail?.stats.map((stat) => (
                                 <S.Line>
@@ -135,8 +125,6 @@ const PokeDetails = () => {
                         </S.StatsWrapper>
                     </>
                 )}
-
-
             </S.CardWrapper>
         </S.Wrapper>
     )

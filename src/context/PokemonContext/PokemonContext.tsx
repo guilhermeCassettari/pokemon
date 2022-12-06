@@ -1,4 +1,3 @@
-import { QueryResult } from "@apollo/client";
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 import { useGetCard } from "../../hooks/useGetCard";
 import { LazyQueryExecFunction } from "@apollo/client";
@@ -10,9 +9,7 @@ import { useGetSingleCard } from "../../hooks/useGetSingleCard";
 interface ContextProps {
   pokeData: PokeCard[] | [],
   loading: boolean,
-  pokeSearch: LazyQueryExecFunction<any, {
-    pokeName: string;
-  }>,
+  pokeSearch: LazyQueryExecFunction<any, { pokeName: string}>,
   searchValue: string
   setSearchValue: Dispatch<SetStateAction<string>> 
   card: PokeCard[],

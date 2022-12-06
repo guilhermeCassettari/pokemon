@@ -1,6 +1,5 @@
-import React, { ReactNode } from "react";
-import { ViewProps, Text } from "react-native";
-import { PokeType } from "../../types/PokeCardType";
+import React from "react";
+import { ViewProps } from "react-native";
 
 import * as S from './styles'
 

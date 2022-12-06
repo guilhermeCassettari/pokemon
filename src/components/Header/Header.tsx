@@ -11,12 +11,8 @@ const Header = () => {
     return (
         <S.Wrapper>
             {!!index && (
-                <S.Touch
-                    onPress={() => goBack()}
-                >
-                    <S.Icon
-                        source={backArrow}
-                    />
+                <S.Touch onPress={() => goBack()}>
+                    <S.Icon source={backArrow} />
                 </S.Touch>
             )}
             <S.Image source={headerImage} />

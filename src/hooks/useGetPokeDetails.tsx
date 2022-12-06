@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useLazyQuery } from "@apollo/client"
 import POKE_DETAILS from '../query/POKE_DETAILS'
@@ -6,7 +6,7 @@ import { PokeDetails, PokeDetailsResponse } from "../types/PokeDetailsType";
 
 const useGetPokeDetails = () => {
     const [pokeDetail, setPokeDetail] = useState<PokeDetails>()
-    const [fetchData, { data, loading, error }] = useLazyQuery(POKE_DETAILS)
+    const [fetchData, { data, loading }] = useLazyQuery(POKE_DETAILS)
 
     useEffect(() => {
         if (data) {
@@ -41,6 +41,7 @@ const useGetPokeDetails = () => {
             }
         })
     }
+    
     return {
         fetchPokeDetais,
         pokeDetail,

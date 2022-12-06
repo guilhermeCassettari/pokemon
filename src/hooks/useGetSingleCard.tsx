@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import SINGLE_POKE_CARD from '../query/SINGLE_POKE_CARD'
 import { PokeAtackType, PokeCard, PokeQueryCard } from "../types/PokeCardType";
