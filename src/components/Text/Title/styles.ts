@@ -1,10 +1,10 @@
 import styled from "styled-components/native";
+import {scale} from 'react-native-size-matters'
 
 export const Title = styled.Text`
     font-weight: bold;
-    font-size: 18px;
+    font-size: ${scale(18)};
     text-transform: capitalize;
-    letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 `

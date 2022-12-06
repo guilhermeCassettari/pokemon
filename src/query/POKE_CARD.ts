@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client"
 
-export const POKE_CARD = gql(`
+const POKE_CARD = gql(`
   query MyQuery {
-    pokemon_v2_pokemon(offset: 0, limit: 10) {
+    pokemon_v2_pokemon(order_by: {id: asc}) {
       id
       name
       pokemon_v2_pokemonspecy {
@@ -18,3 +18,5 @@ export const POKE_CARD = gql(`
     }
   }
 `)
+
+export default POKE_CARD

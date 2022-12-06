@@ -2,7 +2,7 @@ export interface PokeCard {
     name: string
     id: number
     color: string
-    type: PokeType[]
+    type: string[]
 }
 
 export type PokeType = {

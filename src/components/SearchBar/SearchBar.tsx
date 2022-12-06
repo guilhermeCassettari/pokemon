@@ -1,28 +1,34 @@
-import React, { useState } from "react";
-import { Text, NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
-import { ChangeEvent } from 'react';
-
-import seachIcon from '../../../assets/icon/searchIcon.svg'
-
+import React, { useContext } from "react";
+import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
+import arrow from '../../../assets/icon/arrow.png'
+import search from '../../../assets/icon/search.png'
 
 
 import * as S from './styles'
+import { PokemonContext } from "../../context/PokemonContext";
 
 const SearchBar = () => {
-    const [value, setValue] = useState('')
+    const { pokeSearch, searchValue, setSearchValue } = useContext(PokemonContext)
     return (
         <S.Wrapper>
             <S.Icon
-
+                source={search}
             />
             <S.Input
                 placeholder="Search Pokémon"
-                value={value}
-                onChange={(e: NativeSyntheticEvent<TextInputChangeEventData>): void=> {                    
-                    setValue(e.nativeEvent.text)
+                value={searchValue}
+                onChange={(e: NativeSyntheticEvent<TextInputChangeEventData>): void => {
+                    setSearchValue(e.nativeEvent.text)
                 }}
+                onPointerEnter={() => pokeSearch()}                
             />
-            <S.Button><Text>{'->'}</Text></S.Button>
+            <S.Submit
+                onPress={() => pokeSearch()}
+            >
+            <S.Icon
+                source={arrow}
+            />
+            </S.Submit>
         </S.Wrapper>
     )
 }

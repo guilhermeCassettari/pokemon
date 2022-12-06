@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
-import POKE_CARD from '../query/POKE_CARD'
+import { useLazyQuery } from "@apollo/client";
+import SINGLE_POKE_CARD from '../query/SINGLE_POKE_CARD'
 import { PokeAtackType, PokeCard, PokeQueryCard } from "../types/PokeCardType";
 
-export const useGetCard = () => {
-    const [pokeData, setPokeData] = useState<PokeCard[]>([])
-    const { data, loading } = useQuery(POKE_CARD)
+export const useGetSingleCard = (pokeName: string) => {
+    const [singltPokeData, setSingltPokeData] = useState<PokeCard[]>([])
+    const [pokeSearch, { data, loading }] = useLazyQuery(SINGLE_POKE_CARD, {
+        variables: {
+            pokeName
+        }
+    })
 
     useEffect(() => {
         if (data) {
             const pokeList = data.pokemon_v2_pokemon.map((pokemon: PokeQueryCard) => {
-                const type = pokemon.pokemon_v2_pokemontypes.map(( type: PokeAtackType ) => {
+                const type = pokemon.pokemon_v2_pokemontypes.map((type: PokeAtackType) => {
                     return type.pokemon_v2_type.name
                 })
                 return {
@@ -20,12 +24,13 @@ export const useGetCard = () => {
                     type
                 }
             })
-            setPokeData(pokeList)
+            setSingltPokeData(pokeList)
         }
     }, [data, loading])
-    
+
     return {
-        pokeData,
-        loading,
+        singltPokeData,
+        searchLoader: loading,
+        pokeSearch
     }
 }

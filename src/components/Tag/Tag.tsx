@@ -1,12 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ViewProps, Text } from "react-native";
+import { PokeType } from "../../types/PokeCardType";
 
 import * as S from './styles'
 
 type Props = {
-    children: React.ReactNode
+    children: string | number 
     color?: string
-    isId?: string
+    isId?: boolean
 } & ViewProps
 
 const Tag = ({ children, color, isId }: Props) => {

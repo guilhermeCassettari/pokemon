@@ -1,78 +1,56 @@
-import React, { createContext, ReactNode } from "react";
+import { QueryResult } from "@apollo/client";
+import React, { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 import { useGetCard } from "../../hooks/useGetCard";
+import { LazyQueryExecFunction } from "@apollo/client";
+import { PokeCard } from '../../types/PokeCardType'
+import { useGetSingleCard } from "../../hooks/useGetSingleCard";
 
-import { PokeCard} from '../../types/PokeCardType'
+
 
 interface ContextProps {
-    pokeData: PokeCard[] | [],
-    loading: boolean
+  pokeData: PokeCard[] | [],
+  loading: boolean,
+  pokeSearch: LazyQueryExecFunction<any, {
+    pokeName: string;
+  }>,
+  searchValue: string
+  setSearchValue: Dispatch<SetStateAction<string>> 
+  card: PokeCard[],
+  searchLoader: boolean
 }
 
 interface Props {
-    children?: ReactNode
+  children?: ReactNode
 }
 
-const defaultState: ContextProps = {
-    pokeData: [],
-    loading: false
-}
-export const PokemonContext= createContext(defaultState)
 
-export const PokemonProvider: React.FC<Props> = ({ children }) => {   
-    const { pokeData, loading } = useGetCard()  
+export const PokemonContext = createContext<ContextProps>({} as ContextProps)
 
-    return (
-        <PokemonContext.Provider value={{ pokeData, loading }}>
-            {children}
-        </PokemonContext.Provider>
-    )
-}
+export const PokemonProvider: React.FC<Props> = ({ children }) => {
+  const [card, setCard] = useState<PokeCard[]>([])
+  const [searchValue, setSearchValue] = useState('')
+  const { pokeData, loading } = useGetCard()
+  const { pokeSearch, singltPokeData, searchLoader } = useGetSingleCard(searchValue)
 
-/**
-query MyQuery {
-  pokemon_v2_pokemon(limit: 20, order_by: {id: asc}) {
-    id
-    name
-    height
-    weight
-    pokemon_v2_pokemonspecy {
-      pokemon_v2_pokemoncolor {
-        name
-      }
+  useEffect(() => {
+    if(!!singltPokeData.length) {
+      setCard(singltPokeData)
+    } else if(!!pokeData.length) {
+      setCard(pokeData)
     }
-  }
+  }, [loading, searchLoader, pokeData, singltPokeData])
+
+  return (
+    <PokemonContext.Provider value={{
+      pokeData,
+      loading,
+      pokeSearch,
+      searchLoader,
+      searchValue,
+      card,
+      setSearchValue
+    }}>
+      {children}
+    </PokemonContext.Provider>
+  )
 }
-
-
-query MyQuery {
-  pokemon_v2_pokemon(limit: 5, order_by: {id: asc}) {
-    id
-    name
-    height
-    weight
-    pokemon_v2_pokemonstats {
-      base_stat
-      pokemon_v2_stat {
-        name
-      }
-    }
-  }
-}
-
-  pokemon_v2_pokemon(limit: 5, order_by: {id: asc}) {
-    name
-    pokemon_v2_pokemonstats {
-      pokemon_v2_stat {
-        pokemon_v2_characteristics {
-          pokemon_v2_characteristicdescriptions(where: {language_id: {_eq: 9}}) {
-            description
-          }
-        }
-      }
-    }
-  }
-}
-
-
-
- */

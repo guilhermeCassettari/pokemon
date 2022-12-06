@@ -1,33 +1,36 @@
 import styled, { css } from 'styled-components/native'
 import { PokeCard } from '../../types/PokeCardType'
+import {scale} from 'react-native-size-matters'
 
 
+interface Props {
+    color?: string
+}
 
-
-
-export const CardWrapper = styled.View<PokeCard>`
+export const CardWrapper = styled.TouchableOpacity<Props>`
     ${({ theme, color }) => css`
         background-color: ${theme.colors.card.background[color]};
-        width: 140px;
-        height: 189px;
-        border-radius: 15px;
+        width: ${scale(140)};
+        height: ${scale(189)};
+        border-radius: ${scale(15)};
         justify-content: center;
         align-items: center;
         position: relative;
-        margin: 11.5px 5px;
+        margin-top: ${scale(12)};
+        margin-bottom: ${scale(12)};
     `}
 `
 
 export const TagIdWrapper = styled.View`
     position: absolute;
-    top: -10px;
+    top: ${scale(-10)};
 `
 
-export const BackgroundImage = styled.View<PokeCard>`
+export const BackgroundImage = styled.View<Props>`
     ${({ theme, color }) => css`
-        width: 109px;
-        height: 109px;
-        border-radius: 50px;
+        width: ${scale(109)};
+        height: ${scale(109)};
+        border-radius: ${scale(55)};
         justify-content: center;
         align-items: center;
         opacity: 1;
@@ -36,8 +39,8 @@ export const BackgroundImage = styled.View<PokeCard>`
 `
 
 export const Image = styled.Image`
-    width: 93px;
-    height: 93px;
+    width: ${scale(93)};
+    height: ${scale(93)};
 `
 
 export const TagWrapper = styled.View`
@@ -45,5 +48,5 @@ export const TagWrapper = styled.View`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 7px;
+    margin-top: ${scale(7)};
 `
