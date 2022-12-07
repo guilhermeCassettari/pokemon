@@ -1,41 +1,42 @@
 
 import styled from "styled-components/native";
-import {scale} from 'react-native-size-matters'
+import { getSize } from "../../helper/getSize";
+
 
 export const Wrapper = styled.View`
     width: 100%;
-    height: ${scale(40)};
-    border-radius: ${scale(20)};
+    height: ${getSize(40)};
+    border-radius: ${getSize(20)};
     border: 1px solid #3663AD;
     justify-content: space-between;
     align-items: center;
-    padding-top: ${scale(12)};
-    padding-bottom: ${scale(12)};
-    padding-left: ${scale(14)};
-    padding-right: ${scale(14)};
+    padding-top: ${getSize(12)};
+    padding-bottom: ${getSize(12)};
+    padding-left: ${getSize(14)};
+    padding-right: ${getSize(14)};
     flex-direction: row;
-    margin-bottom: ${scale(20)};
+    margin-bottom: ${getSize(20)};
 `
 
 export const Submit = styled.TouchableOpacity``
 
 export const Icon = styled.Image`
-    width: ${scale(25)};
-    height: ${scale(25)};
+    width: ${getSize(25)};
+    height: ${getSize(25)};
     
 `
 
 export const Input = styled.TextInput`
-    width: ${scale(220)};
-    font-size: ${scale(14)};
+    width: ${getSize(220)};
+    font-size: ${getSize(14)};
     text-align: left;
     color: #21386E;
     opacity: 0.5;
 `
 
 export const Button = styled.TouchableOpacity`
-    width: ${scale(15)};
-    height: ${scale(15)};
+    width: ${getSize(15)};
+    height: ${getSize(15)};
     background-color: '#000';
 `
 

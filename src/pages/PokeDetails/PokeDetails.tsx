@@ -11,6 +11,7 @@ import { formatCardId } from "../../helper/formatCardId";
 
 import male from '../../../assets/icon/male.png'
 import female from '../../../assets/icon/female.png'
+import AnimatedLottieView from "lottie-react-native";
 
 type RouteParams = {
     pokemon: PokeCard;
@@ -59,7 +60,7 @@ const PokeDetails = () => {
                 </S.HeaderInfo>
             </S.HeaderWrapper>
             <S.CardWrapper>
-                {(!loading && pokeDetail) && (
+                {pokeDetail ? (
                     <>
                         <S.PokeDescription>
                             <S.DescriptionText> {pokeDetail?.description}</S.DescriptionText>
@@ -99,11 +100,11 @@ const PokeDetails = () => {
                                 <S.TextStatName>Gender</S.TextStatName>
                                 <S.GenderWrapper>
                                     <S.SingleGender>
-                                        <S.GenderIcon source={male}/>
+                                        <S.GenderIcon source={male} />
                                         <S.TextStatValue>{pokeDetail?.gender.male}%</S.TextStatValue>
                                     </S.SingleGender>
                                     <S.SingleGender>
-                                        <S.GenderIcon source={female}/>
+                                        <S.GenderIcon source={female} />
                                         <S.TextStatValue>{pokeDetail?.gender.female}%</S.TextStatValue>
                                     </S.SingleGender>
                                 </S.GenderWrapper>
@@ -124,6 +125,14 @@ const PokeDetails = () => {
                             ))}
                         </S.StatsWrapper>
                     </>
+                ) : (
+                    <S.WrapperAnimation>
+                        <AnimatedLottieView
+                            autoPlay={true}
+                            source={require('../../../assets/loader/pokeLoader.json')}
+                            loop={true}
+                        />
+                    </S.WrapperAnimation>
                 )}
             </S.CardWrapper>
         </S.Wrapper>

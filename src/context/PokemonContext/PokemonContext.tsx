@@ -9,7 +9,7 @@ import { useGetSingleCard } from "../../hooks/useGetSingleCard";
 interface ContextProps {
   pokeData: PokeCard[] | [],
   loading: boolean,
-  pokeSearch: LazyQueryExecFunction<any, { pokeName: string}>,
+  pokeSearch: () => void,
   searchValue: string
   setSearchValue: Dispatch<SetStateAction<string>> 
   card: PokeCard[],

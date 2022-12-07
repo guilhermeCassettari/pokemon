@@ -4,8 +4,10 @@ import { PokemonContext } from "../../context/PokemonContext";
 import PokeCard from '../../components/PokemonCard'
 import SearchBar from "../../components/SearchBar";
 import { Dimensions } from 'react-native';
+import AnimatedLottieView from 'lottie-react-native'
 
 import * as S from './styles'
+import CardShimmer from "../../components/CardShimmer";
 
 const windowWidth = Dimensions.get('window').width;
 const Home = () => {
@@ -17,13 +19,13 @@ const Home = () => {
                 More than 1249 Pokemons for you choose your favorite
             </S.TextPokeSize>
             <SearchBar />
-            {(loading || searchLoader) ? (
-                <Text>Loading</Text>
+            {loading ? (
+                <CardShimmer />
             ) : (
                 <FlatList
                     numColumns={2}
-                    columnWrapperStyle={{ 
-                        justifyContent: 'space-evenly', 
+                    columnWrapperStyle={{
+                        justifyContent: 'space-evenly',
                         width: Math.floor(windowWidth - 30)
                     }}
                     data={card}
@@ -34,6 +36,15 @@ const Home = () => {
                         />
                     )}
                 />
+            )}
+            {searchLoader && (
+                <S.WrapperAnimation accessibilityHint="Await for pokemon initial loader">
+                    <AnimatedLottieView
+                        autoPlay={true}
+                        source={require('../../../assets/loader/pokeLoader.json')}
+                        loop={true}
+                    />
+                </S.WrapperAnimation>
             )}
         </S.Wrapper>
     )

@@ -6,7 +6,10 @@ import { PokeDetails, PokeDetailsResponse } from "../types/PokeDetailsType";
 
 const useGetPokeDetails = () => {
     const [pokeDetail, setPokeDetail] = useState<PokeDetails>()
-    const [fetchData, { data, loading }] = useLazyQuery(POKE_DETAILS)
+    const [fetchData, { data, loading }] = useLazyQuery(POKE_DETAILS, {
+        fetchPolicy: 'cache-and-network',
+        nextFetchPolicy: 'cache-first'
+    })
 
     useEffect(() => {
         if (data) {

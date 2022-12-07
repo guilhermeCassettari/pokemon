@@ -11,16 +11,17 @@ const SearchBar = () => {
     const { pokeSearch, searchValue, setSearchValue } = useContext(PokemonContext)
     return (
         <S.Wrapper>
-            <S.Icon source={search} />
+            <S.Icon source={search} testID="searchIcon"/>
             <S.Input
-                placeholder="Search Pokémon"
+                testID="searchInput"
+                accessibilityLabel="Type here to search pokemons"
                 value={searchValue}
                 onChange={(e: NativeSyntheticEvent<TextInputChangeEventData>): void => {
                     setSearchValue(e.nativeEvent.text)
                 }}
                 onPointerEnter={() => pokeSearch()}
             />
-            <S.Submit onPress={() => pokeSearch()} >
+            <S.Submit onPress={() => pokeSearch()} accessibilityLabel="Press to search">
                 <S.Icon source={arrow} />
             </S.Submit>
         </S.Wrapper>

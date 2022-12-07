@@ -28,6 +28,10 @@ export type PokeStat = {
     statName: string
 }
 
+export interface Pokename {
+    pokeName: string
+}
+
 
 
 

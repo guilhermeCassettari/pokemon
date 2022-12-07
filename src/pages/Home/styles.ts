@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
-import {scale} from 'react-native-size-matters'
+import { getSize } from "../../helper/getSize";
+
 
 export const FlatList = styled.FlatList`
     width: 100%;
@@ -7,17 +8,25 @@ export const FlatList = styled.FlatList`
 
 export const TextPokeSize = styled.Text`
     font-weight: bold;
-    font-size: ${scale(20)};
+    font-size: ${getSize(20)};
     color: #21386E;
-    margin-top:${scale(20)};
-    margin-bottom:${scale(20)};
+    margin-top:${getSize(20)};
+    margin-bottom:${getSize(20)};
 `
 
 export const Wrapper = styled.SafeAreaView`
-    margin-left:${scale(15)};
-    margin-right:${scale(15)};
+    margin-left:${getSize(15)};
+    margin-right:${getSize(15)};
     flex: 1;
     position: relative;
     justify-content: center;
     align-items: center;
+`
+
+export const WrapperAnimation = styled.View`
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.59);    
+    top: 0;
+    width: 100%;
+    height: 100%;
 `

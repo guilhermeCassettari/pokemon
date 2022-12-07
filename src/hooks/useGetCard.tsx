@@ -5,7 +5,10 @@ import { PokeAtackType, PokeCard, PokeQueryCard } from "../types/PokeCardType";
 
 export const useGetCard = () => {
     const [pokeData, setPokeData] = useState<PokeCard[]>([])
-    const { data, loading } = useQuery(POKE_CARD)
+    const { data, loading } = useQuery(POKE_CARD, {
+        fetchPolicy: "cache-first",
+        returnPartialData: true
+    })
 
     useEffect(() => {
         if (data) {
