@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest --watch --silent --coverage=false"
+    "test": "jest --watch --coverage=false"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
@@ -27,11 +27,14 @@
     "react-dom": "18.1.0",
     "react-icons": "^4.7.1",
     "react-native": "0.70.5",
+    "react-native-gesture-handler": "^2.8.0",
+    "react-native-reanimated": "^2.13.0",
     "react-native-safe-area-context": "4.4.1",
     "react-native-screens": "~3.18.0",
     "react-native-size-matters": "^0.4.0",
     "react-native-svg": "^13.6.0",
     "react-native-web": "~0.18.9",
+    "react-scripts": "4.0.3",
     "react-test-renderer": "^18.2.0",
     "styled-components": "^5.3.6"
   },
@@ -39,6 +42,8 @@
     "@babel/core": "^7.12.9",
     "@graphql-codegen/cli": "^2.15.0",
     "@graphql-codegen/client-preset": "^1.2.1",
+    "@graphql-tools/mock": "^8.7.14",
+    "@graphql-tools/schema": "^9.0.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.2.4",
@@ -48,6 +53,7 @@
     "@types/styled-components": "^5.1.26",
     "@types/styled-components-react-native": "^5.2.0",
     "jest-environment-jsdom": "^29.3.1",
+    "jest-styled-components": "^7.1.1",
     "ts-jest": "^29.0.3",
     "typescript": "^4.9.3"
   },

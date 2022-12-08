@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeatchBar Should be render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#3663AD",
+        "borderRadius": 42,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 85,
+        "justifyContent": "space-between",
+        "marginBottom": 42,
+        "paddingBottom": 25,
+        "paddingLeft": 30,
+        "paddingRight": 30,
+        "paddingTop": 25,
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Array [
+        Object {
+          "height": 53,
+          "width": 53,
+        },
+      ]
+    }
+    testID="searchIcon"
+  />
+  <TextInput
+    accessibilityHint="Type here to search pokemons"
+    onChange={[Function]}
+    onPointerEnter={[Function]}
+    style={
+      Array [
+        Object {
+          "color": "#21386E",
+          "fontSize": 30,
+          "opacity": 0.5,
+          "textAlign": "left",
+          "width": 471,
+        },
+      ]
+    }
+    value=""
+  />
+  <View
+    accessibilityHint="Press to search"
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Array [
+          Object {
+            "height": 53,
+            "width": 53,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;

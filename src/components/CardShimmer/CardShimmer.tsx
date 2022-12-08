@@ -19,7 +19,7 @@ const CardShimmer = () => {
             keyExtractor={item => item.id}
             
             renderItem={() => (
-                <S.CardWrapper >
+                <S.CardWrapper testID="Shimmer">
                     <S.BackgroundImage source={shimmer} />
                 </S.CardWrapper>
             )}
