@@ -115,10 +115,17 @@ const PokeDetails = () => {
                                     <S.LevelWrapper>
                                         <S.TextStatValue>{stat.stat}</S.TextStatValue>
                                         <S.LevelBarWrapper>
-                                            <S.LevelBar
-                                                value={stat.stat}
-                                                color={stat.stat < 50 ? '#E63950' : '#45C0A3'}
-                                            />
+                                            {stat.statName != 'Total' ? (
+                                                <S.LevelBar
+                                                    value={stat.stat}
+                                                    color={stat.stat < 50 ? '#E63950' : '#45C0A3'}
+                                                />
+                                            ) : (
+                                                <S.LevelBar
+                                                    value={(stat.stat / 6)}
+                                                    color={(stat.stat / 6) < 50 ? '#E63950' : '#45C0A3'}
+                                                />
+                                            )}
                                         </S.LevelBarWrapper>
                                     </S.LevelWrapper>
                                 </S.Line>

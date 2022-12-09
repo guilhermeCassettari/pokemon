@@ -8,10 +8,13 @@ export type PokeStatsResponse = {
     base_stat: number,
     pokemon_v2_stat: {
         name: string
-    }
+    },
+    // sorry im tired :(
+    pokemon_v2_pokemon: any
 }
 
-export type PokeDetails =  {
+
+export type PokeDetails = {
     description: string
     weight: number
     height: number

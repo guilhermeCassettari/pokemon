@@ -3,7 +3,6 @@ import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 import arrow from '../../../assets/icon/arrow.png'
 import search from '../../../assets/icon/search.png'
 
-
 import * as S from './styles'
 import { PokemonContext } from "../../context/PokemonContext";
 

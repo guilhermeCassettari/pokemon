@@ -4,8 +4,6 @@ import { PokeCard } from '../../types/PokeCardType'
 import { useGetSingleCard } from "../../hooks/useGetSingleCard";
 import { Alert } from "react-native";
 
-
-
 export interface ContextProps {
   pokeData: PokeCard[] | [],
   loading: boolean,

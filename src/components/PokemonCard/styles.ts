@@ -3,7 +3,7 @@ import { getSize } from "../../helper/getSize";
 
 
 interface Props {
-    color?: string
+    color: string
 }
 
 export const CardWrapper = styled.TouchableOpacity<Props>`

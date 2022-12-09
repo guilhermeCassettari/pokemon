@@ -140,7 +140,8 @@ export const TextStatName = styled.Text`
     color: #21386E;
     font-size: ${getSize(12)};
     font-weight: 600;
-    width: ${getSize(80)};
+    width: ${getSize(90)};
+    text-transform: capitalize;
 `
 
 export const TextStatValue = styled.Text`

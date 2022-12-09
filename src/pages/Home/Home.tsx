@@ -13,10 +13,9 @@ const windowWidth = Dimensions.get('window').width;
 const Home = () => {
     const { card, loading, searchLoader, fetchMoreData } = useContext(PokemonContext)
     const [ showShimmer, setShowShimmer ] = useState(true)
-    const rola = () => {
+    const fetchMorePokemons = () => {
         if(card.length >= 4) {
             fetchMoreData()
-            console.log(card.length)
         }
     }
 
@@ -40,7 +39,7 @@ const Home = () => {
                         justifyContent: 'space-evenly',
                         width: Math.floor(windowWidth - 30)
                     }}
-                    onEndReached={rola}
+                    onEndReached={fetchMorePokemons}
                     onEndReachedThreshold={0.1}
                     data={card}
                     keyExtractor={pokemon => pokemon.id.toString()}
