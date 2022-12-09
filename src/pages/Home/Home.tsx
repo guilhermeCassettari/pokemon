@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { FlatList, Text } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+import { FlatList } from "react-native";
 import { PokemonContext } from "../../context/PokemonContext";
 import PokeCard from '../../components/PokemonCard'
 import SearchBar from "../../components/SearchBar";
@@ -11,15 +11,27 @@ import CardShimmer from "../../components/CardShimmer";
 
 const windowWidth = Dimensions.get('window').width;
 const Home = () => {
-    const { card, loading, searchLoader } = useContext(PokemonContext)
+    const { card, loading, searchLoader, fetchMoreData } = useContext(PokemonContext)
+    const [ showShimmer, setShowShimmer ] = useState(true)
+    const rola = () => {
+        if(card.length >= 4) {
+            fetchMoreData()
+            console.log(card.length)
+        }
+    }
 
+    useEffect(() => {
+        if(showShimmer && !loading) {
+            setShowShimmer(false)
+        }
+    }, [loading])
     return (
         <S.Wrapper>
             <S.TextPokeSize>
                 More than 1249 Pokemons for you choose your favorite
             </S.TextPokeSize>
             <SearchBar />
-            {loading ? (
+            {loading && showShimmer ? (
                 <CardShimmer />
             ) : (
                 <FlatList
@@ -28,6 +40,8 @@ const Home = () => {
                         justifyContent: 'space-evenly',
                         width: Math.floor(windowWidth - 30)
                     }}
+                    onEndReached={rola}
+                    onEndReachedThreshold={0.1}
                     data={card}
                     keyExtractor={pokemon => pokemon.id.toString()}
                     renderItem={({ item: pokemon }) => (
@@ -37,7 +51,7 @@ const Home = () => {
                     )}
                 />
             )}
-            {searchLoader && (
+            {(searchLoader || (!showShimmer && loading)) && (
                 <S.WrapperAnimation accessibilityHint="Await for pokemon initial loader">
                     <AnimatedLottieView
                         autoPlay={true}

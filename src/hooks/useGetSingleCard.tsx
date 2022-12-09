@@ -6,8 +6,7 @@ import { PokeAtackType, PokeCard, PokeQueryCard } from "../types/PokeCardType";
 export const useGetSingleCard = (pokeName: string) => {
     const [singltPokeData, setSingltPokeData] = useState<PokeCard[]>([])
     const [fetchData, { data, loading, error }] = useLazyQuery(SINGLE_POKE_CARD, {
-        fetchPolicy: 'cache-and-network',
-        nextFetchPolicy: 'cache-first'
+        fetchPolicy: 'no-cache'
     })
 
     useEffect(() => {
@@ -38,6 +37,7 @@ export const useGetSingleCard = (pokeName: string) => {
     return {
         singltPokeData,
         searchLoader: loading,
-        pokeSearch
+        pokeSearch,
+        singleCardError: error
     }
 }

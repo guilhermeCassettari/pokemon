@@ -1,19 +1,20 @@
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 import { useGetCard } from "../../hooks/useGetCard";
-import { LazyQueryExecFunction } from "@apollo/client";
 import { PokeCard } from '../../types/PokeCardType'
 import { useGetSingleCard } from "../../hooks/useGetSingleCard";
+import { Alert } from "react-native";
 
 
 
-interface ContextProps {
+export interface ContextProps {
   pokeData: PokeCard[] | [],
   loading: boolean,
   pokeSearch: () => void,
   searchValue: string
-  setSearchValue: Dispatch<SetStateAction<string>> 
+  setSearchValue: Dispatch<SetStateAction<string>>
   card: PokeCard[],
-  searchLoader: boolean
+  searchLoader: boolean,
+  fetchMoreData: () => void
 }
 
 interface Props {
@@ -26,16 +27,43 @@ export const PokemonContext = createContext<ContextProps>({} as ContextProps)
 export const PokemonProvider: React.FC<Props> = ({ children }) => {
   const [card, setCard] = useState<PokeCard[]>([])
   const [searchValue, setSearchValue] = useState('')
-  const { pokeData, loading } = useGetCard()
-  const { pokeSearch, singltPokeData, searchLoader } = useGetSingleCard(searchValue)
+  const { pokeSearch, singltPokeData, searchLoader, singleCardError } = useGetSingleCard(searchValue)
+  const { pokeData, loading, getCardError, fetchMoreData } = useGetCard()
 
   useEffect(() => {
-    if(!!singltPokeData.length) {
-      setCard(singltPokeData)
-    } else if(!!pokeData.length) {
+    if (pokeData) {
       setCard(pokeData)
     }
-  }, [loading, searchLoader, pokeData, singltPokeData])
+  }, [pokeData])
+
+  useEffect(() => {
+    if (!!singltPokeData.length && !searchLoader) {
+      setCard(singltPokeData)
+    } else if (!!pokeData.length && searchValue && !loading && !searchLoader) {
+      setCard(pokeData)
+      Alert.alert(
+        "Dont find any Pokemon",
+        "Try again more latter",
+        [{ text: "OK" }]
+      )
+    }
+  }, [singltPokeData])
+
+  useEffect(() => {
+    if (!searchValue.length) {
+      setCard(pokeData)
+    }
+  }, [searchValue])
+
+  useEffect(() => {
+    if (getCardError || singleCardError) {
+      Alert.alert(
+        "Ocurrent a error",
+        "Try again more latter",
+        [{ text: "OK" }]
+      )
+    }
+  }, [getCardError, singleCardError])
 
   return (
     <PokemonContext.Provider value={{
@@ -45,7 +73,8 @@ export const PokemonProvider: React.FC<Props> = ({ children }) => {
       searchLoader,
       searchValue,
       card,
-      setSearchValue
+      setSearchValue,
+      fetchMoreData
     }}>
       {children}
     </PokemonContext.Provider>

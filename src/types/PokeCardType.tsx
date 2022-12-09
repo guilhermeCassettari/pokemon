@@ -1,6 +1,3 @@
-import { LazyQueryExecFunction } from "@apollo/client"
-import { Dispatch, SetStateAction } from "react"
-
 export interface PokeCard {
     name: string
     id: number
@@ -28,13 +25,3 @@ export type PokeAtackType = {
         name: string
     }
 }
-
-export interface ContextProps {
-    pokeData: PokeCard[] | [],
-    loading: boolean,
-    pokeSearch: LazyQueryExecFunction<any, { pokeName: string}>,
-    searchValue: string
-    setSearchValue: Dispatch<SetStateAction<string>> 
-    card: PokeCard[],
-    searchLoader: boolean
-  }

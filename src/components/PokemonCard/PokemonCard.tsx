@@ -7,7 +7,7 @@ import { Title } from '../Text/Title'
 
 import * as S from './styles'
 import Tag from '../Tag'
-import { RootStackParamList } from '../../reoutes/app.routes';
+import { RootStackParamList } from '../../routes/app.routes';
 import { TouchableOpacityProps } from 'react-native';
 import { formatCardId } from '../../helper/formatCardId';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';

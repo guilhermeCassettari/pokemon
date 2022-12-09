@@ -2,43 +2,13 @@ import React from 'react'
 import { render } from '@testing-library/react-native';
 import { PokemonContext } from '../../../context/PokemonContext';
 import Home from '../Home';
-import { ContextProps, PokeCard } from '../../../types/PokeCardType';
 import { ThemeContext } from 'styled-components/native';
 import theme from '../../../theme';
 import 'jest-styled-components'
+import { initialState } from '../../../__mocks__/initialState';
+import { pokeCardMock } from '../../../__mocks__/responseMock';
 
 jest.mock('@react-navigation/native')
-
-const initialState: ContextProps = {
-    card: [],
-    loading: false,
-    pokeData: [],
-    pokeSearch: jest.fn(),
-    searchLoader: false,
-    searchValue: '',
-    setSearchValue: jest.fn()
-}
-
-const pokeCardMock: PokeCard[] = [
-    {
-        name: "teste1",
-        color: "red",
-        id: 1,
-        type: [
-            'testeA',
-            'testeB'
-        ]
-    },
-    {
-        name: "teste2",
-        color: "blue",
-        id: 1,
-        type: [
-            'testeC',
-            'testeD'
-        ]
-    }
-]
 
 describe('Home', () => {
     it("Should be render Shimmer Card", () => {

@@ -1,7 +1,7 @@
 import { ApolloProvider } from '@apollo/client';
 import React from 'react'
 import { ThemeProvider } from 'styled-components';
-import Routes from './src/reoutes/Routes';
+import Routes from './src/routes/Routes';
 
 import { PokemonProvider } from './src/context/PokemonContext/PokemonContext';
 import apolloClient from './apolloClient'

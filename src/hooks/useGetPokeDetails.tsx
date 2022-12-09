@@ -3,13 +3,24 @@ import { useEffect, useState } from "react";
 import { useLazyQuery } from "@apollo/client"
 import POKE_DETAILS from '../query/POKE_DETAILS'
 import { PokeDetails, PokeDetailsResponse } from "../types/PokeDetailsType";
+import { Alert } from "react-native";
 
 const useGetPokeDetails = () => {
     const [pokeDetail, setPokeDetail] = useState<PokeDetails>()
-    const [fetchData, { data, loading }] = useLazyQuery(POKE_DETAILS, {
+    const [fetchData, { data, loading, error }] = useLazyQuery(POKE_DETAILS, {
         fetchPolicy: 'cache-and-network',
         nextFetchPolicy: 'cache-first'
     })
+
+    useEffect(() => {
+        if(error) {
+          Alert.alert(
+            "Ocurrent a error",
+            "Try again more latter",
+            [{ text: "OK"}]
+          )
+        }
+      }, [error])
 
     useEffect(() => {
         if (data) {
