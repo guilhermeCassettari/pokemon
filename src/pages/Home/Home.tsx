@@ -12,15 +12,15 @@ import CardShimmer from "../../components/CardShimmer";
 const windowWidth = Dimensions.get('window').width;
 const Home = () => {
     const { card, loading, searchLoader, fetchMoreData } = useContext(PokemonContext)
-    const [ showShimmer, setShowShimmer ] = useState(true)
+    const [showShimmer, setShowShimmer] = useState(true)
     const fetchMorePokemons = () => {
-        if(card.length >= 4) {
+        if (card.length >= 4) {
             fetchMoreData()
         }
     }
 
     useEffect(() => {
-        if(showShimmer && !loading) {
+        if (showShimmer && !loading) {
             setShowShimmer(false)
         }
     }, [loading])
@@ -44,8 +44,9 @@ const Home = () => {
                     data={card}
                     keyExtractor={pokemon => pokemon.id.toString()}
                     renderItem={({ item: pokemon }) => (
-                        <PokeCard
+                        <PokeCard 
                             pokemon={pokemon}
+                            delay={(pokemon.enterAnimation)}
                         />
                     )}
                 />

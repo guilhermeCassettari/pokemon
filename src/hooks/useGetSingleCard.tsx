@@ -3,6 +3,7 @@ import { useLazyQuery } from "@apollo/client";
 import SINGLE_POKE_CARD from '../query/SINGLE_POKE_CARD'
 import { PokeAtackType, PokeCard, PokeQueryCard } from "../types/PokeCardType";
 import { fomatPokeList } from "../helper/formatPokeList";
+import { Alert } from "react-native";
 
 export const useGetSingleCard = (pokeName: string) => {
     const [singltPokeData, setSingltPokeData] = useState<PokeCard[]>([])
@@ -12,8 +13,16 @@ export const useGetSingleCard = (pokeName: string) => {
 
     useEffect(() => {
         if (data) {
-            const pokeList = fomatPokeList(data)
-            setSingltPokeData(pokeList)
+            try {
+                const pokeList = fomatPokeList(data)
+                setSingltPokeData(pokeList)
+            } catch (error) {
+                Alert.alert(
+                    "Ocurrent a error",
+                    "Try again more latter",
+                    [{ text: "OK" }]
+                )
+            }
         }
     }, [data, loading])
 

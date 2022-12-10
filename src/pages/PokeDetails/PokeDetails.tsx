@@ -12,6 +12,9 @@ import { formatCardId } from "../../helper/formatCardId";
 import male from '../../../assets/icon/male.png'
 import female from '../../../assets/icon/female.png'
 import AnimatedLottieView from "lottie-react-native";
+import FadeAnimation from "../../components/animations/FadeAnimation";
+import EnterAnimation from "../../components/animations/EnterAnimation";
+import WidthAnimation from "../../components/animations/WidthAnimation";
 
 type RouteParams = {
     pokemon: PokeCard;
@@ -22,6 +25,8 @@ const PokeDetails = () => {
     const { pokemon } = route.params as RouteParams;
     const { name, color, id, type: types } = pokemon
 
+    const duration = 600
+
     const { fetchPokeDetais, pokeDetail, loading } = useGetPokeDetails()
 
     useEffect(() => {
@@ -29,120 +34,180 @@ const PokeDetails = () => {
     }, [])
 
     return (
-        <S.Wrapper>
-            <S.HeaderWrapper color={color}>
-                <S.ImageWrapper color={color} >
-                    <S.Image source={getImgUrl(id)} />
-                </S.ImageWrapper>
-                <S.HeaderInfo>
-                    <Tag
-                        isId={true}
-                        color={'default'}
-                    >
-                        {formatCardId(id)}
-                    </Tag>
-                    <Title>
-                        {name}
-                    </Title>
-                    <S.TagWrapper>
-                        {types.map((type, index) => {
-                            return (
-                                <Tag
-                                    key={index}
-                                    isId={false}
-                                    color={color}
+        <FadeAnimation duration={duration} >
+            <S.Wrapper>
+                <S.HeaderWrapper color={color}>
+                    <S.ImageWrapper color={color} >
+                        <EnterAnimation
+                            duration={800}
+                            delay={300}
+                        >
+                            <S.Image source={getImgUrl(id)} />
+                        </EnterAnimation>
+                    </S.ImageWrapper>
+                    <S.HeaderInfo>
+                        <FadeAnimation
+                            duration={duration}
+                            delay={400}
+                        >
+                            <Tag
+                                isId={true}
+                                color={'default'}
+                            >
+                                {formatCardId(id)}
+                            </Tag>
+                        </FadeAnimation>
+                        <FadeAnimation
+                            duration={duration}
+                            delay={500}
+                        >
+                            <Title>
+                                {name}
+                            </Title>
+                        </FadeAnimation>
+                        <S.TagWrapper>
+                            {types.map((type, index) => {
+                                return (
+                                    <FadeAnimation
+                                        duration={duration}
+                                        delay={(index * 120) + 700}
+                                    >
+                                        <Tag
+                                            key={index}
+                                            isId={false}
+                                            color={color}
+                                        >
+                                            {type}
+                                        </Tag>
+                                    </FadeAnimation>
+                                )
+                            })}
+                        </S.TagWrapper>
+                    </S.HeaderInfo>
+                </S.HeaderWrapper>
+                <S.CardWrapper>
+                    {pokeDetail ? (
+                        <>
+                            <S.PokeDescription>
+                                <FadeAnimation
+                                    duration={duration}
                                 >
-                                    {type}
-                                </Tag>
-                            )
-                        })}
-                    </S.TagWrapper>
-                </S.HeaderInfo>
-            </S.HeaderWrapper>
-            <S.CardWrapper>
-                {pokeDetail ? (
-                    <>
-                        <S.PokeDescription>
-                            <S.DescriptionText> {pokeDetail?.description}</S.DescriptionText>
-                        </S.PokeDescription>
-                        <S.SecondTagWrapper>
-                            <S.SingleTagWrapper>
-                                <S.TagText>Wieght:</S.TagText>
-                                <Tag
-                                    isId={false}
-                                    color={color}
+                                    <S.DescriptionText> {pokeDetail?.description}</S.DescriptionText>
+                                </FadeAnimation>
+                            </S.PokeDescription>
+                            <S.SecondTagWrapper>
+                                <FadeAnimation
+                                    duration={duration}
+                                    delay={300}
                                 >
-                                    {pokeDetail?.weight}
-                                </Tag>
-                            </S.SingleTagWrapper>
-                            <S.SingleTagWrapper>
-                                <S.TagText>Height:</S.TagText>
-                                <Tag
-                                    isId={false}
-                                    color={color}
+                                    <S.SingleTagWrapper>
+                                        <S.TagText>Wieght:</S.TagText>
+                                        <Tag
+                                            isId={false}
+                                            color={color}
+                                        >
+                                            {pokeDetail?.weight}
+                                        </Tag>
+                                    </S.SingleTagWrapper>
+                                </FadeAnimation>
+                                <FadeAnimation
+                                    duration={duration}
+                                    delay={400}
                                 >
-                                    {pokeDetail?.height}
-                                </Tag>
-                            </S.SingleTagWrapper>
-                            <S.SingleTagWrapper>
-                                <S.TagText>Major Move:</S.TagText>
-                                <Tag
-                                    isId={false}
-                                    color={color}
+                                    <S.SingleTagWrapper>
+                                        <S.TagText>Height:</S.TagText>
+                                        <Tag
+                                            isId={false}
+                                            color={color}
+                                        >
+                                            {pokeDetail?.height}
+                                        </Tag>
+                                    </S.SingleTagWrapper>
+                                </FadeAnimation>
+                                <FadeAnimation
+                                    duration={duration}
+                                    delay={500}
                                 >
-                                    {pokeDetail?.majorMove}
-                                </Tag>
-
-                            </S.SingleTagWrapper>
-                        </S.SecondTagWrapper>
-                        <S.StatsWrapper>
-                            <S.Line>
-                                <S.TextStatName>Gender</S.TextStatName>
-                                <S.GenderWrapper>
-                                    <S.SingleGender>
-                                        <S.GenderIcon source={male} />
-                                        <S.TextStatValue>{pokeDetail?.gender.male}%</S.TextStatValue>
-                                    </S.SingleGender>
-                                    <S.SingleGender>
-                                        <S.GenderIcon source={female} />
-                                        <S.TextStatValue>{pokeDetail?.gender.female}%</S.TextStatValue>
-                                    </S.SingleGender>
-                                </S.GenderWrapper>
-                            </S.Line>
-                            {pokeDetail?.stats.map((stat) => (
-                                <S.Line>
-                                    <S.TextStatName>{stat.statName}</S.TextStatName>
-                                    <S.LevelWrapper>
-                                        <S.TextStatValue>{stat.stat}</S.TextStatValue>
-                                        <S.LevelBarWrapper>
-                                            {stat.statName != 'Total' ? (
-                                                <S.LevelBar
-                                                    value={stat.stat}
-                                                    color={stat.stat < 50 ? '#E63950' : '#45C0A3'}
-                                                />
-                                            ) : (
-                                                <S.LevelBar
-                                                    value={(stat.stat / 6)}
-                                                    color={(stat.stat / 6) < 50 ? '#E63950' : '#45C0A3'}
-                                                />
-                                            )}
-                                        </S.LevelBarWrapper>
-                                    </S.LevelWrapper>
-                                </S.Line>
-                            ))}
-                        </S.StatsWrapper>
-                    </>
-                ) : (
-                    <S.WrapperAnimation>
-                        <AnimatedLottieView
-                            autoPlay={true}
-                            source={require('../../../assets/loader/pokeLoader.json')}
-                            loop={true}
-                        />
-                    </S.WrapperAnimation>
-                )}
-            </S.CardWrapper>
-        </S.Wrapper>
+                                    <S.SingleTagWrapper>
+                                        <S.TagText>Major Move:</S.TagText>
+                                        <Tag
+                                            isId={false}
+                                            color={color}
+                                        >
+                                            {pokeDetail?.majorMove}
+                                        </Tag>
+                                    </S.SingleTagWrapper>
+                                </FadeAnimation>
+                            </S.SecondTagWrapper>
+                            <S.StatsWrapper>
+                                <FadeAnimation
+                                    duration={duration}
+                                    delay={600}
+                                >
+                                    <S.Line>
+                                        <S.TextStatName>Gender</S.TextStatName>
+                                        <S.GenderWrapper>
+                                            <S.SingleGender>
+                                                <S.GenderIcon source={male} />
+                                                <S.TextStatValue>{pokeDetail?.gender.male}%</S.TextStatValue>
+                                            </S.SingleGender>
+                                            <S.SingleGender>
+                                                <S.GenderIcon source={female} />
+                                                <S.TextStatValue>{pokeDetail?.gender.female}%</S.TextStatValue>
+                                            </S.SingleGender>
+                                        </S.GenderWrapper>
+                                    </S.Line>
+                                </FadeAnimation>
+                                {pokeDetail?.stats.map((stat, index) => (
+                                    <FadeAnimation
+                                        duration={duration}
+                                        delay={duration + (index * 100)}
+                                    >
+                                        <S.Line>
+                                            <S.TextStatName>{stat.statName}</S.TextStatName>
+                                            <S.LevelWrapper>
+                                                <S.TextStatValue>{stat.stat}</S.TextStatValue>
+                                                <S.LevelBarWrapper>
+                                                    {stat.statName != 'Total' ? (
+                                                        <WidthAnimation
+                                                            duration={duration}
+                                                            delay={700 + (index * 100)}
+                                                        >
+                                                            <S.LevelBar
+                                                                value={stat.stat}
+                                                                color={stat.stat < 50 ? '#E63950' : '#45C0A3'}
+                                                            />
+                                                        </WidthAnimation>
+                                                    ) : (
+                                                        <WidthAnimation
+                                                            duration={duration}
+                                                            delay={700 + (index * 100)}
+                                                        >
+                                                            <S.LevelBar
+                                                                value={(stat.stat / 6)}
+                                                                color={(stat.stat / 6) < 50 ? '#E63950' : '#45C0A3'}
+                                                            />
+                                                        </WidthAnimation>
+                                                    )}
+                                                </S.LevelBarWrapper>
+                                            </S.LevelWrapper>
+                                        </S.Line>
+                                    </FadeAnimation>
+                                ))}
+                            </S.StatsWrapper>
+                        </>
+                    ) : (
+                        <S.WrapperAnimation>
+                            <AnimatedLottieView
+                                autoPlay={true}
+                                source={require('../../../assets/loader/pokeLoader.json')}
+                                loop={true}
+                            />
+                        </S.WrapperAnimation>
+                    )}
+                </S.CardWrapper>
+            </S.Wrapper>
+        </FadeAnimation>
     )
 }
 

@@ -174,398 +174,570 @@ exports[`Home Should be render Pokecards 1`] = `
           }
         >
           <View
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#FB6C6C",
-                "borderRadius": 32,
-                "height": 405,
-                "justifyContent": "center",
-                "marginBottom": 25,
-                "marginTop": 25,
-                "opacity": 1,
-                "position": "relative",
-                "width": 300,
-              }
+              Array [
+                Object {},
+                Object {
+                  "opacity": 0,
+                },
+              ]
             }
           >
             <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "position": "absolute",
-                    "top": -22,
-                  },
-                ]
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FB6C6C",
+                  "borderRadius": 32,
+                  "height": 405,
+                  "justifyContent": "center",
+                  "marginBottom": 25,
+                  "marginTop": 25,
+                  "opacity": 1,
+                  "position": "relative",
+                  "width": 300,
+                }
               }
             >
               <View
-                color="default"
-                isId={true}
                 style={
                   Array [
                     Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#FFCB05",
-                      "borderRadius": 21,
-                      "justifyContent": "center",
-                      "paddingBottom": 2,
-                      "paddingLeft": 21,
-                      "paddingRight": 21,
-                      "paddingTop": 2,
+                      "position": "absolute",
+                      "top": -22,
                     },
                   ]
                 }
               >
-                <Text
-                  color="default"
-                  isId={true}
+                <View
                   style={
                     Array [
+                      Object {},
                       Object {
-                        "color": "#21386E",
-                        "textTransform": "capitalize",
+                        "transform": Array [
+                          Object {
+                            "translateY": -37.5,
+                          },
+                        ],
                       },
                     ]
                   }
                 >
-                  # 001
-                </Text>
-              </View>
-            </View>
-            <View
-              color="red"
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#FEA1A1",
-                    "borderRadius": 117,
-                    "height": 233,
-                    "justifyContent": "center",
-                    "opacity": 1,
-                    "width": 233,
-                  },
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "height": 199,
-                      "width": 199,
-                    },
-                  ]
-                }
-              />
-            </View>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#FFFFFF",
-                    "fontSize": 38,
-                    "fontWeight": "bold",
-                    "opacity": 1,
-                    "textTransform": "capitalize",
-                  },
-                ]
-              }
-            >
-              teste1
-            </Text>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "space-evenly",
-                    "marginTop": 15,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View
-                color="red"
-                isId={false}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#EA6464",
-                      "borderRadius": 21,
-                      "justifyContent": "center",
-                      "paddingBottom": 2,
-                      "paddingLeft": 21,
-                      "paddingRight": 21,
-                      "paddingTop": 2,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  color="red"
-                  isId={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#FFF",
-                        "textTransform": "capitalize",
-                      },
-                    ]
-                  }
-                >
-                  testeA
-                </Text>
+                  <View
+                    color="default"
+                    isId={true}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#FFCB05",
+                          "borderRadius": 21,
+                          "justifyContent": "center",
+                          "paddingBottom": 2,
+                          "paddingLeft": 21,
+                          "paddingRight": 21,
+                          "paddingTop": 2,
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      color="default"
+                      isId={true}
+                      style={
+                        Array [
+                          Object {
+                            "color": "#21386E",
+                            "textTransform": "capitalize",
+                          },
+                        ]
+                      }
+                    >
+                      # 001
+                    </Text>
+                  </View>
+                </View>
               </View>
               <View
                 color="red"
-                isId={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#EA6464",
-                      "borderRadius": 21,
+                      "backgroundColor": "#FEA1A1",
+                      "borderRadius": 117,
+                      "height": 233,
                       "justifyContent": "center",
-                      "paddingBottom": 2,
-                      "paddingLeft": 21,
-                      "paddingRight": 21,
-                      "paddingTop": 2,
+                      "opacity": 1,
+                      "width": 233,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "transform": Array [
+                          Object {
+                            "scale": 0.4,
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "height": 199,
+                          "width": 199,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "transform": Array [
+                        Object {
+                          "scale": 0.4,
+                        },
+                      ],
                     },
                   ]
                 }
               >
                 <Text
-                  color="red"
-                  isId={false}
                   style={
                     Array [
                       Object {
-                        "color": "#FFF",
+                        "color": "#FFFFFF",
+                        "fontSize": 38,
+                        "fontWeight": "bold",
+                        "opacity": 1,
                         "textTransform": "capitalize",
                       },
                     ]
                   }
                 >
-                  testeB
+                  teste1
                 </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-evenly",
+                      "marginTop": 15,
+                      "width": "100%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "transform": Array [
+                          Object {
+                            "scale": 0.4,
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    color="red"
+                    isId={false}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#EA6464",
+                          "borderRadius": 21,
+                          "justifyContent": "center",
+                          "paddingBottom": 2,
+                          "paddingLeft": 21,
+                          "paddingRight": 21,
+                          "paddingTop": 2,
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      color="red"
+                      isId={false}
+                      style={
+                        Array [
+                          Object {
+                            "color": "#FFF",
+                            "textTransform": "capitalize",
+                          },
+                        ]
+                      }
+                    >
+                      testeA
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "transform": Array [
+                          Object {
+                            "scale": 0.4,
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    color="red"
+                    isId={false}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#EA6464",
+                          "borderRadius": 21,
+                          "justifyContent": "center",
+                          "paddingBottom": 2,
+                          "paddingLeft": 21,
+                          "paddingRight": 21,
+                          "paddingTop": 2,
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      color="red"
+                      isId={false}
+                      style={
+                        Array [
+                          Object {
+                            "color": "#FFF",
+                            "textTransform": "capitalize",
+                          },
+                        ]
+                      }
+                    >
+                      testeB
+                    </Text>
+                  </View>
+                </View>
               </View>
             </View>
           </View>
           <View
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#77BDFE",
-                "borderRadius": 32,
-                "height": 405,
-                "justifyContent": "center",
-                "marginBottom": 25,
-                "marginTop": 25,
-                "opacity": 1,
-                "position": "relative",
-                "width": 300,
-              }
+              Array [
+                Object {},
+                Object {
+                  "opacity": 0,
+                },
+              ]
             }
           >
             <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "position": "absolute",
-                    "top": -22,
-                  },
-                ]
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#77BDFE",
+                  "borderRadius": 32,
+                  "height": 405,
+                  "justifyContent": "center",
+                  "marginBottom": 25,
+                  "marginTop": 25,
+                  "opacity": 1,
+                  "position": "relative",
+                  "width": 300,
+                }
               }
             >
               <View
-                color="default"
-                isId={true}
                 style={
                   Array [
                     Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#FFCB05",
-                      "borderRadius": 21,
-                      "justifyContent": "center",
-                      "paddingBottom": 2,
-                      "paddingLeft": 21,
-                      "paddingRight": 21,
-                      "paddingTop": 2,
+                      "position": "absolute",
+                      "top": -22,
                     },
                   ]
                 }
               >
-                <Text
-                  color="default"
-                  isId={true}
+                <View
                   style={
                     Array [
+                      Object {},
                       Object {
-                        "color": "#21386E",
-                        "textTransform": "capitalize",
+                        "transform": Array [
+                          Object {
+                            "translateY": -37.5,
+                          },
+                        ],
                       },
                     ]
                   }
                 >
-                  # 001
-                </Text>
-              </View>
-            </View>
-            <View
-              color="blue"
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#A8D5FF",
-                    "borderRadius": 117,
-                    "height": 233,
-                    "justifyContent": "center",
-                    "opacity": 1,
-                    "width": 233,
-                  },
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "uri": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "height": 199,
-                      "width": 199,
-                    },
-                  ]
-                }
-              />
-            </View>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#FFFFFF",
-                    "fontSize": 38,
-                    "fontWeight": "bold",
-                    "opacity": 1,
-                    "textTransform": "capitalize",
-                  },
-                ]
-              }
-            >
-              teste2
-            </Text>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "space-evenly",
-                    "marginTop": 15,
-                    "width": "100%",
-                  },
-                ]
-              }
-            >
-              <View
-                color="blue"
-                isId={false}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#5AA2E5",
-                      "borderRadius": 21,
-                      "justifyContent": "center",
-                      "paddingBottom": 2,
-                      "paddingLeft": 21,
-                      "paddingRight": 21,
-                      "paddingTop": 2,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  color="blue"
-                  isId={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#FFF",
-                        "textTransform": "capitalize",
-                      },
-                    ]
-                  }
-                >
-                  testeC
-                </Text>
+                  <View
+                    color="default"
+                    isId={true}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#FFCB05",
+                          "borderRadius": 21,
+                          "justifyContent": "center",
+                          "paddingBottom": 2,
+                          "paddingLeft": 21,
+                          "paddingRight": 21,
+                          "paddingTop": 2,
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      color="default"
+                      isId={true}
+                      style={
+                        Array [
+                          Object {
+                            "color": "#21386E",
+                            "textTransform": "capitalize",
+                          },
+                        ]
+                      }
+                    >
+                      # 001
+                    </Text>
+                  </View>
+                </View>
               </View>
               <View
                 color="blue"
-                isId={false}
                 style={
                   Array [
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "#5AA2E5",
-                      "borderRadius": 21,
+                      "backgroundColor": "#A8D5FF",
+                      "borderRadius": 117,
+                      "height": 233,
                       "justifyContent": "center",
-                      "paddingBottom": 2,
-                      "paddingLeft": 21,
-                      "paddingRight": 21,
-                      "paddingTop": 2,
+                      "opacity": 1,
+                      "width": 233,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "transform": Array [
+                          Object {
+                            "scale": 0.4,
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "height": 199,
+                          "width": 199,
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "transform": Array [
+                        Object {
+                          "scale": 0.4,
+                        },
+                      ],
                     },
                   ]
                 }
               >
                 <Text
-                  color="blue"
-                  isId={false}
                   style={
                     Array [
                       Object {
-                        "color": "#FFF",
+                        "color": "#FFFFFF",
+                        "fontSize": 38,
+                        "fontWeight": "bold",
+                        "opacity": 1,
                         "textTransform": "capitalize",
                       },
                     ]
                   }
                 >
-                  testeD
+                  teste2
                 </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-evenly",
+                      "marginTop": 15,
+                      "width": "100%",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "transform": Array [
+                          Object {
+                            "scale": 0.4,
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    color="blue"
+                    isId={false}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#5AA2E5",
+                          "borderRadius": 21,
+                          "justifyContent": "center",
+                          "paddingBottom": 2,
+                          "paddingLeft": 21,
+                          "paddingRight": 21,
+                          "paddingTop": 2,
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      color="blue"
+                      isId={false}
+                      style={
+                        Array [
+                          Object {
+                            "color": "#FFF",
+                            "textTransform": "capitalize",
+                          },
+                        ]
+                      }
+                    >
+                      testeC
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "transform": Array [
+                          Object {
+                            "scale": 0.4,
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    color="blue"
+                    isId={false}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#5AA2E5",
+                          "borderRadius": 21,
+                          "justifyContent": "center",
+                          "paddingBottom": 2,
+                          "paddingLeft": 21,
+                          "paddingRight": 21,
+                          "paddingTop": 2,
+                        },
+                      ]
+                    }
+                  >
+                    <Text
+                      color="blue"
+                      isId={false}
+                      style={
+                        Array [
+                          Object {
+                            "color": "#FFF",
+                            "textTransform": "capitalize",
+                          },
+                        ]
+                      }
+                    >
+                      testeD
+                    </Text>
+                  </View>
+                </View>
               </View>
             </View>
           </View>

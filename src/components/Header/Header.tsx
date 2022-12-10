@@ -4,19 +4,28 @@ import { useNavigation } from '@react-navigation/native';
 import * as S from './style'
 
 import backArrow from '../../../assets/icon/back.png'
+import FadeAnimation from '../animations/FadeAnimation';
+import EnterAnimation from '../animations/EnterAnimation';
 
 const Header = () => {
     const { getState, goBack } = useNavigation();
     const { index } = getState()
     return (
-        <S.Wrapper>
-            {!!index && (
-                <S.Touch onPress={() => goBack()}>
-                    <S.Icon source={backArrow} />
-                </S.Touch>
-            )}
-            <S.Image source={headerImage} />
-        </S.Wrapper>
+        <FadeAnimation duration={600}>
+            <S.Wrapper>
+                {!!index && (
+                    <S.Touch onPress={() => goBack()}>
+                        <S.Icon source={backArrow} />
+                    </S.Touch>
+                )}
+                <EnterAnimation
+                    duration={600}
+                    delay={300}
+                >
+                    <S.Image source={headerImage} />
+                </EnterAnimation>
+            </S.Wrapper>
+        </FadeAnimation>
     )
 }
 

@@ -8,6 +8,12 @@ import 'jest-styled-components'
 import { initialState } from '../../../__mocks__/initialState';
 import { pokeCardMock } from '../../../__mocks__/responseMock';
 
+jest.mock('react-native-reanimated', () => {
+    const Reanimated = require('react-native-reanimated/mock');
+    Reanimated.default.call = () => { };
+    return Reanimated;
+});
+
 jest.mock('@react-navigation/native')
 
 describe('Home', () => {

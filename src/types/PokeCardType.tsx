@@ -1,6 +1,7 @@
 export interface PokeCard {
     name: string
     id: number
+    enterAnimation: number
     color: string
     type: string[]
 }
